@@ -41,7 +41,6 @@ This repository contains the fitting code used for the experiments in [Reconstru
     * pose_model = vitpose_inference_model(batch_size=1, model_spec='huge-coco17', weights_dir="data")
     * joints_dict()["coco17"]["skeleton"]
   * Careful when executing several times cause data folder starts to create a tree of directories
-  * In copy_frames > change: for pngfile in sorted(glob.iglob(os.path.join(str(image_dir_path)[1::], "*.png"))):
   * Downgrade sklearn version to 1.2.2
   * Re-download weights for ResNet50 > corrupted in my first download
   * In interpolate.py > from pytorch3d.transforms import rotation_conversion
