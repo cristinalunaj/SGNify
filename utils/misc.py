@@ -21,7 +21,7 @@ def extract_frames(*, video_path, output_folder):
 def copy_frames(*, image_dir_path, output_folder):
     i = 1
     print(image_dir_path)
-    for pngfile in sorted(glob.iglob(os.path.join(str(image_dir_path)[1::], "*.png"))):
+    for pngfile in sorted(glob.iglob(os.path.join(str(image_dir_path), "*.png"))):
         shutil.copy(pngfile, output_folder.joinpath("{:03}.png".format(i)))
         i += 1
 
