@@ -13,7 +13,7 @@ unzip data.zip -d data/
 rm data.zip
 
 GIT_LFS_SKIP_SMUDGE=1 git submodule update --init --recursive
-conda env create -f environment.yml 
+conda env create -f environment_v2.yml
 eval "$(conda shell.bash hook)"
 git submodule update --init --recursive
 

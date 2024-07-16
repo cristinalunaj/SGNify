@@ -28,6 +28,8 @@ def compute_sign_class(*, result_folder, openpose_folder, segment_path, sign_cla
     y_l = y[7][c_l] / h
 
     v1 = min(np.ptp(y_r) if len(y_r) else 0, np.ptp(y_l) if len(y_l) else 0)
+    if(np.isnan(v1)):
+        v1 = 0
 
     base_folder = result_folder.joinpath("rps", "sign_classification")
     with base_folder.joinpath("ref_right_1.pkl").open("rb") as file:
@@ -40,8 +42,12 @@ def compute_sign_class(*, result_folder, openpose_folder, segment_path, sign_cla
         left_2 = pickle.load(file)["left_hand_pose"][0]
 
     v3 = scipy.spatial.distance.cosine(right_1, left_1)
+    if(np.isnan(v3)):
+        v3 = 0
 
     v5 = max(scipy.spatial.distance.cosine(right_1, right_2), scipy.spatial.distance.cosine(left_1, left_2))
+    if(np.isnan(v5)):
+        v5 = 0
 
     with open("data/sign_classifier.pkl", "rb") as file:
         clf = pickle.load(file)

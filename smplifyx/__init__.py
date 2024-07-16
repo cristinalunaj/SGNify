@@ -14,8 +14,10 @@
 # Cybernetics. All rights reserved.
 #
 # Contact: ps-license@tuebingen.mpg.de
+import os
 
-import fitting
-import data_parser
 
-from fit_single_frame import fit_single_frame
+import smplifyx.fitting
+import smplifyx.data_parser
+
+from smplifyx.fit_single_frame import fit_single_frame

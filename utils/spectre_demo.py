@@ -15,6 +15,10 @@ from skimage.transform import estimate_transform, warp
 from tqdm import tqdm
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))  # noqa
+sys.path.append('.')
+sys.path.append('..')
+sys.path.append('../../')
+sys.path.append('../../../')
 from spectre.config import cfg as spectre_cfg
 from spectre.datasets.data_utils import landmarks_interpolate
 from spectre.external.Visual_Speech_Recognition_for_Multiple_Languages.tracker.face_tracker import (
@@ -72,7 +76,7 @@ def crop_face(frame, landmarks, scale=1.0):
 
 def main(args):
     args.crop_face = True
-    spectre_cfg.pretrained_modelpath = "spectre/pretrained/spectre_model.tar"
+    spectre_cfg.pretrained_modelpath = "spectre/pretrained/spectre_model.tar" # "../spectre/pretrained/spectre_model.tar"
     spectre_cfg.model.use_tex = False
 
     spectre = SPECTRE(spectre_cfg, args.device)

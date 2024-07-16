@@ -32,6 +32,29 @@ This repository contains the fitting code used for the experiments in [Reconstru
 3. Download [[this file](https://1drv.ms/u/s!AimBgYV7JjTlgS5rLeRAJiWobCdh?e=41GsDd)] and place it inside `data`
 4. Activate the environment `conda activate sgnify`
 
+
+* Issues on installation:
+  * pyrender==0.1.23 is not available anymore in conda > changed to pyrender==0.1.45
+  * Install gdown ( pip install gdown)
+  * From vitpose/utils/../inference.py > change line 49 to model_mode, kpt_mode = model_spec.split('-') 
+  * Changing inside run_vitpose(..) >
+    * pose_model = vitpose_inference_model(batch_size=1, model_spec='huge-coco17', weights_dir="data")
+    * joints_dict()["coco17"]["skeleton"]
+  * Careful when executing several times cause data folder starts to create a tree of directories
+  * In copy_frames > change: for pngfile in sorted(glob.iglob(os.path.join(str(image_dir_path)[1::], "*.png"))):
+  * Downgrade sklearn version to 1.2.2
+  * Re-download weights for ResNet50 > corrupted in my first download
+  * In interpolate.py > from pytorch3d.transforms import rotation_conversion
+    * from pytorch3d.transforms import axis_angle_to_quaternion, quaternion_to_axis_angle
+    * from smplifyx.cmd_parser import parse_config
+  * Rename vitpose in /home/cristina-luna/PycharmProjects/SGNify/utils/vitpose_internal.py
+  * In /home/cristina-luna/PycharmProjects/SGNify/smplifyx/data_parser.py
+    * from smplifyx.utils import smpl_to_openpose
+  * In /home/cristina-luna/PycharmProjects/SGNify/smplifyx/fit_single_frame.py
+    * from smplifyx.optimizers import optim_factory
+  * Change paths to path from root
+
+
 ### Fitting 
 Run the following command to execute the code:
 ```Shell

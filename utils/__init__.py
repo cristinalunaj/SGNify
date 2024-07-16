@@ -9,7 +9,7 @@ from utils.misc import (
 )
 from utils.rps import compute_rps, compute_valid_frames
 from utils.segment_signs import segment_signs
-from utils.vitpose import run_vitpose
+from utils.vitpose_internal import run_vitpose
 
 __all__ = [
     "compute_betas",

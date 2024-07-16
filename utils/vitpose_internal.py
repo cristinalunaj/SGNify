@@ -1,4 +1,5 @@
 import json
+import os
 
 import numpy as np
 import tqdm.auto as tqdm
@@ -10,7 +11,7 @@ from vitpose.utils.visualization import draw_points_and_skeleton, joints_dict
 
 def run_vitpose(*, images_folder, output_folder):
     det_model = YOLO("data/yolov8n.pt")
-    pose_model = vitpose_inference_model(batch_size=1, model_mode="huge", weights_dir="data")
+    pose_model = vitpose_inference_model(batch_size=1, model_spec='huge-coco17', weights_dir="data")  # batch_size=1, model_mode="huge", weights_dir="data"
 
     for image_path in tqdm.tqdm(sorted(images_folder.glob("*"))):
         im = Image.open(image_path)
@@ -23,7 +24,7 @@ def run_vitpose(*, images_folder, output_folder):
             draw_points_and_skeleton(
                 np.array(im).copy(),
                 pose_preds,
-                joints_dict()["coco"]["skeleton"],
+                joints_dict()["coco17"]["skeleton"],
                 person_index=0,
                 points_color_palette="gist_rainbow",
                 skeleton_color_palette="jet",

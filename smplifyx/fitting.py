@@ -29,7 +29,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from mesh_viewer import MeshViewer
+from smplifyx.mesh_viewer import MeshViewer
 import utils
 from selfcontact.losses import SelfContactLoss
 

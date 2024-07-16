@@ -33,7 +33,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from utils import smpl_to_openpose
+from smplifyx.utils import smpl_to_openpose
 
 Keypoints = namedtuple('Keypoints',
                        ['keypoints', 'gender_gt', 'gender_pd', 'pelvis', 'neck', 'keypoints_3d'])

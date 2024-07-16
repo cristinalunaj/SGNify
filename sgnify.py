@@ -267,8 +267,8 @@ def main(args):
         video_path = Path(args.video_path).resolve()
         output_folder = Path(args.output_folder).joinpath(video_path.stem).resolve()
     elif args.image_dir_path != "None":
-        image_dir_path = Path(args.image_dir_path).resolve()
-        output_folder = Path(args.output_folder).joinpath(image_dir_path.stem).resolve()
+        image_dir_path = Path(args.image_dir_path)#.resolve()
+        output_folder = Path(args.output_folder).joinpath(image_dir_path.stem)#.resolve()
 
     output_folder.mkdir(exist_ok=True, parents=True)
 
@@ -332,7 +332,7 @@ def main(args):
         # 1. Run VitPose and MediaPipe on each frame
         # VitPose
         print("Extracting 2D keypoints with ViTPose...")
-        run_vitpose(images_folder=images_folder, output_folder=openpose_folder)
+        run_vitpose(images_folder=images_folder, output_folder=openpose_folder) #images_folder=images_folder
 
         # MediaPipe
         print("Extracting 2D keypoints with MediaPipe for RPS...")
@@ -462,6 +462,8 @@ def main(args):
 
 
 if __name__ == "__main__":
+
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--video_path", required=False, default="None", help="Path to the video to analyze")
     parser.add_argument("--image_dir_path", required=False, default="None", help="Path to the image folder to analyze")

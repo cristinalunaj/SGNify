@@ -41,9 +41,10 @@ import copy
 import cv2
 import PIL.Image as pil_img
 
-from optimizers import optim_factory
+from smplifyx.optimizers import optim_factory
+from smplifyx import fitting
 
-import fitting
+#import smplifyx.fitting
 from human_body_prior.tools.model_loader import load_vposer
 import warnings
 import contextlib

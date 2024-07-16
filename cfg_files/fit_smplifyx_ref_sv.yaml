@@ -39,7 +39,7 @@ ign_part_pairs: ["9,16", "9,17", "6,16", "6,17", "1,2", "12,22"]
 penalize_outside: True
 max_collisions: 128
 # LBFGS with line search
-optim_type: 'trustncg'
+optim_type: 'adam'#'trustncg'
 ftol: -1.0
 gtol: 1e-9
 lr: 1.0
